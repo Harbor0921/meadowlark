@@ -1,13 +1,7 @@
-var fortunes = [
-	"Harbor001",
-	"Harbor002",
-	"Fortune!003",
-	"Bingo004",
-	"Guess my No.",
-	"i am0006",
-];
 
 var express = require('express');
+
+var fortune = require('./lib/fortunes.js');
 
 var app = express();
 
@@ -25,8 +19,10 @@ app.get('/',function(req,res){
 });
 
 app.get('/about',function(req,res){
-        var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
-	res.render('about',{fortune : randomFortune}); 
+        //var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
+
+		//res.render('about',{fortune : randomFortune}); 
+		res.render('about',{ fortune : fortune.getFortunes() } );
 });
 
 app.use(function(req,res,next){
