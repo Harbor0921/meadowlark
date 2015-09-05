@@ -21,7 +21,12 @@
 		</div>
 	</form>
 </div>
-
+{{#if flash}}
+<div class="alert alert0dismissible alert-{{flash.type}}">
+	<button type="button" class="close" data-sidmiss="alert" aria-hidden="true">&times;</button>
+	<strong>{{flash.intro}}</strong>{{{flash.message}}}
+</div>
+{{/if}}
 	<script>
 		$(document).ready(function(){
 			$('.newsletterForm').on('submit',function(evt){
